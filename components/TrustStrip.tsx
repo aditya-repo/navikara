@@ -3,8 +3,8 @@ import { Globe, ShieldCheck, TrendingUp } from "lucide-react";
 const badges = [
   {
     icon: ShieldCheck,
-    title: "Built for Bihar businesses",
-    description: "Local strategy for local markets and service categories."
+    title: "Built for service businesses",
+    description: "Clear positioning, strong trust signals, and conversion-focused structure."
   },
   {
     icon: Globe,
@@ -25,7 +25,7 @@ export default function TrustStrip() {
         <div className="mb-8 text-center">
           <p className="text-lg text-slate-700">
             <span className="font-semibold text-orange-600">Navikara</span> combines
-            local market understanding with scalable digital systems.
+            strong brand presentation with scalable digital systems.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-3">

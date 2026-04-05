@@ -13,17 +13,27 @@ import UseCases from "@/components/UseCases";
 export default function Page() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white/70">
-      <Hero />
+      <section id="home">
+        <Hero />
+      </section>
       <TrustStrip />
-      <ProblemSection />
+      <section id="about-us" className="scroll-mt-32">
+        <ProblemSection />
+      </section>
       <SolutionStack />
       <HowItWorks />
       <UseCases />
       <Results />
       <SocialProof />
-      <Pricing />
-      <FinalCTA />
-      <Footer />
+      <section id="pricing" className="scroll-mt-32">
+        <Pricing />
+      </section>
+      <section id="partnership" className="scroll-mt-32">
+        <FinalCTA />
+      </section>
+      <section id="contact-us" className="scroll-mt-32">
+        <Footer />
+      </section>
     </main>
   );
 }

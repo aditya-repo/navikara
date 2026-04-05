@@ -1,18 +1,12 @@
-import {
-  Globe,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone
-} from "lucide-react";
+import Link from "next/link";
+import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/site";
 
 const links = {
-  services: ["Web presence", "Lead funnels", "CRM workflows", "Local growth systems"],
+  services: ["Web presence", "Lead funnels", "CRM workflows", "Growth systems"],
   sectors: ["Real estate", "Clinics", "Institutes", "Professional services"],
   company: ["About Navikara", "Work process", "Pricing", "Contact"],
-  support: ["Discovery calls", "Project onboarding", "Content updates", "Launch support"]
+  legal: ["Privacy Policy", "Terms & Conditions", "Refund Policy"]
 };
 
 export default function Footer() {
@@ -26,51 +20,49 @@ export default function Footer() {
                 N
               </div>
               <div>
-                <div className="text-xl font-bold text-white">Navikara</div>
-                <div className="text-sm text-slate-400">navikara.com</div>
+                <div className="text-xl font-bold text-white">{siteConfig.business.name}</div>
+                <div className="text-sm text-slate-400">{siteConfig.business.websiteLabel}</div>
               </div>
             </div>
             <p className="mt-5 max-w-md leading-7 text-slate-400">
-              Patna-based digital growth partner for businesses that want a stronger
-              web presence, cleaner lead flow, and more reliable follow-up systems.
+              {siteConfig.business.tagline}
             </p>
-            <a
-              href="https://navikara.com"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:bg-emerald-500"
-            >
-              <Globe className="h-5 w-5" />
-              Visit website
-            </a>
           </div>
 
           <FooterColumn title="Services" items={links.services} />
           <FooterColumn title="Sectors" items={links.sectors} />
           <FooterColumn title="Company" items={links.company} />
-          <FooterColumn title="Support" items={links.support} />
+          <FooterColumn title="Legal" items={links.legal} />
         </div>
 
-        <div className="mt-12 grid gap-6 border-t border-white/10 py-8 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 border-t border-white/10 py-8 md:grid-cols-4">
           <InfoBlock
             icon={Mail}
             label="Email"
-            value="hello@navikara.com"
-            href="mailto:hello@navikara.com"
+            value={siteConfig.contact.email}
+            href={`mailto:${siteConfig.contact.email}`}
           />
           <InfoBlock
             icon={Phone}
             label="Phone"
-            value="+91 62000 00000"
-            href="tel:+9162000000000"
+            value={siteConfig.contact.phoneDisplay}
+            href={siteConfig.contact.phoneHref}
           />
-          <InfoBlock icon={MapPin} label="Location" value="Patna, Bihar" />
+          <InfoBlock
+            icon={MessageCircle}
+            label="WhatsApp"
+            value={siteConfig.contact.whatsappDisplay}
+            href={siteConfig.contact.whatsappHref}
+          />
+          <InfoBlock icon={MapPin} label="Coverage" value={siteConfig.business.coverage} />
         </div>
 
         <div className="flex flex-col gap-4 border-t border-white/10 py-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-          <div>© 2026 Navikara. Crafted for businesses growing from Patna outward.</div>
+          <div>&copy; 2026 {siteConfig.business.name}. Built for businesses growing across India.</div>
           <div className="flex items-center gap-3">
-            <SocialIcon icon={MessageCircle} />
-            <SocialIcon icon={Instagram} />
-            <SocialIcon icon={Linkedin} />
+            <SocialIcon icon={MessageCircle} href={siteConfig.social.whatsapp} />
+            <SocialIcon icon={Instagram} href={siteConfig.social.instagram} />
+            <SocialIcon icon={Linkedin} href={siteConfig.social.linkedin} />
           </div>
         </div>
       </div>
@@ -79,12 +71,29 @@ export default function Footer() {
 }
 
 function FooterColumn({ title, items }: { title: string; items: string[] }) {
+  const linkMap: Record<string, string> = {
+    "About Navikara": "/about-us",
+    "Pricing": "/pricing",
+    "Contact": "/contact-us",
+    "Privacy Policy": "/privacy-policy",
+    "Terms & Conditions": "/terms-and-conditions",
+    "Refund Policy": "/refund-policy"
+  };
+
   return (
     <div>
       <h3 className="font-semibold text-white">{title}</h3>
       <ul className="mt-4 space-y-3 text-sm text-slate-400">
         {items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>
+            {linkMap[item] ? (
+              <Link href={linkMap[item]} className="transition hover:text-orange-300">
+                {item}
+              </Link>
+            ) : (
+              item
+            )}
+          </li>
         ))}
       </ul>
     </div>
@@ -123,10 +132,13 @@ function InfoBlock({
   );
 }
 
-function SocialIcon({ icon: Icon }: { icon: typeof Mail }) {
+function SocialIcon({ icon: Icon, href }: { icon: typeof Mail; href: string }) {
   return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-slate-300 transition hover:bg-orange-500 hover:text-white">
+    <a
+      href={href}
+      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-slate-300 transition hover:bg-orange-500 hover:text-white"
+    >
       <Icon className="h-5 w-5" />
-    </div>
+    </a>
   );
 }
