@@ -1,3 +1,13 @@
+const contactConfig = {
+  email: "navikara99@gmail.com",
+  phoneDisplay: "+91 70500 20659",
+  phoneHref: "tel:+917050020659",
+  whatsappDisplay: "+91 94730 95293",
+  whatsappHref: "https://wa.me/919473095293",
+  address: ["Navikara Office", "Boring Road", "Patna, Bihar 800001", "India"],
+  officeHours: "Monday to Saturday, 10:00 AM to 7:00 PM"
+} as const;
+
 export const siteConfig = {
   business: {
     name: "Navikara",
@@ -9,19 +19,11 @@ export const siteConfig = {
       "Digital growth partner for businesses that want a stronger web presence, cleaner lead flow, and more reliable follow-up systems.",
     coverage: "Serving businesses across India"
   },
-  contact: {
-    email: "navikara99@gmail.com",
-    phoneDisplay: "+91 70500 20659",
-    phoneHref: "tel:+917050020659",
-    whatsappDisplay: "+91 94730 95293",
-    whatsappHref: "https://wa.me/919473095293",
-    address: ["Navikara Office", "Boring Road", "Patna, Bihar 800001", "India"],
-    officeHours: "Monday to Saturday, 10:00 AM to 7:00 PM"
-  },
+  contact: contactConfig,
   social: {
     instagram: "#",
     linkedin: "#",
-    whatsapp: "https://wa.me/9162000000000"
+    whatsapp: contactConfig.whatsappHref
   },
   navigation: {
     main: [
@@ -55,8 +57,8 @@ export const siteConfig = {
     descriptionLead: "Great businesses don't fail because they lack quality. ",
     descriptionAccent: "They fail because they lack visibility and systems.",
     subtext: "We exist to change that.",
-    primaryLabel: "Open navikara.com",
-    primaryHref: "https://navikara.com",
+    primaryLabel: "Chat on WhatsApp",
+    primaryHref: contactConfig.whatsappHref,
     secondaryLabel: "Review packages",
     secondaryHref: "#pricing"
   },

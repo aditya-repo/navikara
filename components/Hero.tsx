@@ -1,5 +1,6 @@
 import { ArrowRight, MessageCircleMore, ScanSearch, Sparkles, TrendingUp, Workflow } from "lucide-react";
 import NavigationHeader from "@/components/NavigationHeader";
+import { siteConfig } from "@/lib/site-config";
 
 export default function Hero() {
   return (
@@ -28,7 +29,7 @@ export default function Hero() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="#contact-us"
+                href={siteConfig.contact.phoneHref}
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-8 py-4 font-semibold text-white shadow-xl shadow-orange-950/30 transition hover:bg-orange-600"
               >
                 Call
