@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight, Check, Handshake, MessageCircle, Sparkles, Users } from "lucide-react";
 import Footer from "@/components/Footer";
 import NavigationHeader from "@/components/NavigationHeader";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Affiliate Partnership | Navikara",
@@ -76,12 +76,14 @@ export default function PartnershipPage() {
               key={item.title}
               className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
-                <item.icon className="h-5 w-5" />
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
+                  <item.icon className="h-5 w-5" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-900">
+                  {item.title}
+                </h2>
               </div>
-              <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-slate-900">
-                {item.title}
-              </h2>
               <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
             </article>
           ))}
@@ -172,3 +174,4 @@ export default function PartnershipPage() {
     </main>
   );
 }
+

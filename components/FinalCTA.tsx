@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export default function FinalCTA() {
   return (
@@ -7,35 +8,51 @@ export default function FinalCTA() {
       <div className="section-shell relative text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/15 px-4 py-2 text-sm text-orange-100">
           <Sparkles className="h-4 w-4" />
-          Ready to launch navikara.com with this direction
+          {siteConfig.finalCta.badge}
         </div>
 
-        <h2 className="mx-auto mt-8 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-          Navikara is now positioned as a Patna-based digital growth brand with a
-          complete landing page to match.
-        </h2>
+        <div className="mx-auto mt-8 max-w-5xl space-y-5 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-orange-200">
+            {siteConfig.finalCta.eyebrow}
+          </p>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100">
-          Use this as the foundation for the production site, then plug in real contact
-          details, case studies, and form actions when you are ready.
-        </p>
+          <h2 className="text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+            {siteConfig.finalCta.titleLead}
+            <span className="block bg-gradient-to-r from-white via-orange-100 to-orange-300 bg-clip-text text-transparent">
+              {siteConfig.finalCta.titleAccent}
+            </span>
+          </h2>
+
+          <p className="mx-auto max-w-4xl text-lg leading-8 text-blue-100 sm:text-xl lg:text-2xl">
+            {siteConfig.finalCta.descriptionLead}
+            <span className="text-white">{siteConfig.finalCta.descriptionAccent}</span>
+          </p>
+
+          <p className="mx-auto max-w-2xl text-xl font-medium text-orange-200 sm:text-2xl">
+            {siteConfig.finalCta.subtext}
+          </p>
+        </div>
 
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <a
-            href="https://navikara.com"
+            href={siteConfig.finalCta.primaryHref}
             className="group inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-10 py-5 text-lg font-semibold text-white transition hover:bg-orange-600"
           >
-            Open navikara.com
+            {siteConfig.finalCta.primaryLabel}
             <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </a>
           <a
-            href="#pricing"
+            href={siteConfig.finalCta.secondaryHref}
             className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-10 py-5 text-lg font-semibold text-white backdrop-blur transition hover:bg-white/20"
           >
-            Review packages
+            {siteConfig.finalCta.secondaryLabel}
           </a>
         </div>
       </div>
     </section>
   );
 }
+
+
+
+

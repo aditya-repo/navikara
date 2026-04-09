@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import NavigationHeader from "@/components/NavigationHeader";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site-config";
 
 const contactCards = [
   {
@@ -115,12 +115,12 @@ export default function ContactUsPage() {
               {card.href ? (
                 <a
                   href={card.href}
-                  className="mt-3 block text-2xl font-semibold tracking-[-0.03em] text-slate-900 transition hover:text-orange-600"
+                  className="mt-3 block break-words text-2xl font-semibold tracking-[-0.03em] text-slate-900 transition hover:text-orange-600"
                 >
                   {card.value}
                 </a>
               ) : (
-                <div className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-900">
+                <div className="mt-3 break-words text-2xl font-semibold tracking-[-0.03em] text-slate-900">
                   {card.value}
                 </div>
               )}

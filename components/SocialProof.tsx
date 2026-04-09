@@ -1,4 +1,4 @@
-import { Quote, Star } from "lucide-react";
+import { IconFrame, QuoteGlyph, StarGlyph } from "@/components/LandingIcons";
 
 const testimonials = [
   {
@@ -27,24 +27,6 @@ const testimonials = [
   }
 ];
 
-const stories = [
-  {
-    title: "Clinic positioning rebuilt for local search",
-    metric: "More consistent appointment requests",
-    category: "Healthcare"
-  },
-  {
-    title: "Real estate offers turned into focused landing pages",
-    metric: "Better campaign-to-call handoff",
-    category: "Property"
-  },
-  {
-    title: "Coaching admissions workflow simplified",
-    metric: "Less manual follow-up pressure",
-    category: "Education"
-  }
-];
-
 export default function SocialProof() {
   return (
     <section className="bg-white py-20">
@@ -65,10 +47,12 @@ export default function SocialProof() {
               key={testimonial.name}
               className="rounded-[28px] border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-orange-50 p-8 shadow-sm"
             >
-              <Quote className="h-10 w-10 text-orange-500" />
+              <IconFrame className="h-12 w-12" tone="sunset">
+                <QuoteGlyph className="h-6 w-6" />
+              </IconFrame>
               <div className="mt-4 flex gap-1 text-orange-500">
                 {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} className="h-5 w-5 fill-current" />
+                  <StarGlyph key={index} className="h-5 w-5" />
                 ))}
               </div>
               <p className="mt-5 leading-8 text-slate-700">"{testimonial.text}"</p>
@@ -90,22 +74,8 @@ export default function SocialProof() {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {stories.map((story) => (
-            <div
-              key={story.title}
-              className="rounded-[24px] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg"
-            >
-              <div className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700 ring-1 ring-blue-100">
-                {story.category}
-              </div>
-              <h3 className="mt-4 text-lg font-bold text-slate-900">{story.title}</h3>
-              <p className="mt-3 text-xl font-semibold text-orange-600">{story.metric}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
+

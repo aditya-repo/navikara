@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
+import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://navikara.com"),
-  title: "Navikara | Digital Growth Systems for Modern Businesses",
-  description:
-    "Navikara helps businesses launch modern websites, lead funnels, CRM workflows, and scalable digital growth systems.",
+  metadataBase: new URL(siteConfig.business.website),
+  title: siteConfig.meta.defaultTitle,
+  description: siteConfig.meta.defaultDescription,
   openGraph: {
-    title: "Navikara",
-    description:
-      "Modern digital growth systems for businesses, startups, clinics, institutes, and service brands.",
-    url: "https://navikara.com",
-    siteName: "Navikara"
+    title: siteConfig.business.name,
+    description: siteConfig.meta.openGraphDescription,
+    url: siteConfig.business.website,
+    siteName: siteConfig.business.name
   }
 };
 

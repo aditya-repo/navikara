@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import NavigationHeader from "@/components/NavigationHeader";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site-config";
 
 const iconMap = {
   Globe,
@@ -67,7 +67,7 @@ export default function PricingPage() {
       </section>
 
       <section className="section-shell py-12 lg:py-14">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {siteConfig.pricingPlans.map((plan) => {
             const Icon = iconMap[plan.icon];
 
@@ -85,12 +85,14 @@ export default function PricingPage() {
                   </div>
                 ) : null}
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
-                  <Icon className="h-5 w-5" />
+                <div className="flex items-center gap-4 pr-16">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-2xl font-bold tracking-[-0.03em] text-slate-900">
+                    {plan.name}
+                  </h2>
                 </div>
-                <h2 className="mt-5 text-2xl font-bold tracking-[-0.03em] text-slate-900">
-                  {plan.name}
-                </h2>
                 <p className="mt-3 leading-7 text-slate-600">{plan.description}</p>
 
                 <div className="mt-5">
@@ -150,3 +152,5 @@ export default function PricingPage() {
     </main>
   );
 }
+
+

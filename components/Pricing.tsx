@@ -1,18 +1,21 @@
 import {
   Check,
-  Globe,
-  Settings2,
-  ShoppingCart,
   Sparkles,
-  TrendingUp
 } from "lucide-react";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site-config";
+import {
+  CommerceGlyph,
+  GrowthGlyph,
+  IconFrame,
+  PresenceGlyph,
+  SettingsGlyph
+} from "@/components/LandingIcons";
 
 const iconMap = {
-  Globe,
-  TrendingUp,
-  Settings2,
-  ShoppingCart
+  Globe: PresenceGlyph,
+  TrendingUp: GrowthGlyph,
+  Settings2: SettingsGlyph,
+  ShoppingCart: CommerceGlyph
 };
 
 export default function Pricing() {
@@ -25,7 +28,7 @@ export default function Pricing() {
           </h2>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {siteConfig.pricingPlans.map((plan) => {
             const Icon = iconMap[plan.icon];
 
@@ -45,12 +48,17 @@ export default function Pricing() {
                   </div>
                 ) : null}
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
-                  <Icon className="h-5 w-5" />
+                <div className="flex items-center gap-4 pr-16">
+                  <IconFrame
+                    className="h-12 w-12 shrink-0"
+                    tone={plan.featured ? "sunset" : plan.icon === "ShoppingCart" ? "emerald" : "navy"}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </IconFrame>
+                  <h3 className="text-2xl font-bold tracking-[-0.03em] text-slate-900">
+                    {plan.name}
+                  </h3>
                 </div>
-                <h3 className="mt-5 text-2xl font-bold tracking-[-0.03em] text-slate-900">
-                  {plan.name}
-                </h3>
                 <p className="mt-3 leading-7 text-slate-600">{plan.description}</p>
 
                 <div className="mt-5">
@@ -87,3 +95,5 @@ export default function Pricing() {
     </section>
   );
 }
+
+

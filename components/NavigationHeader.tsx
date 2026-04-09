@@ -4,33 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import BrandMark from "@/components/BrandMark";
+import { siteConfig } from "@/lib/site-config";
 
 export default function NavigationHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const navLinks = [
-    { label: "Home", href: pathname === "/" ? "#home" : "/" },
-    { label: "About Us", href: "/about-us" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Partnership", href: "/partnership" },
-    { label: "Contact Us", href: "/contact-us" }
-  ];
+  const navLinks = siteConfig.navigation.main.map((link) => ({
+    label: link.label,
+    href: pathname === "/" && "homeHref" in link ? link.homeHref : link.href
+  }));
 
   return (
     <header className="relative z-50">
       <div className="section-shell">
         <div className="flex items-center justify-between py-5">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-orange-500 shadow-lg shadow-orange-950/30">
-              <span className="text-lg font-bold text-white">N</span>
-            </div>
+            <BrandMark />
             <div>
               <div className="text-lg font-semibold tracking-[0.08em] text-white">
-                Navikara
+                {siteConfig.business.name}
               </div>
               <div className="text-xs uppercase tracking-[0.28em] text-blue-100/75">
-                Growth Studio
+                {siteConfig.business.descriptor}
               </div>
             </div>
           </Link>

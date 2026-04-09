@@ -137,12 +137,14 @@ export default function AboutUsPage() {
               key={pillar.title}
               className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)]"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
-                <pillar.icon className="h-6 w-6" />
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#0f2744] text-orange-300">
+                  <pillar.icon className="h-6 w-6" />
+                </div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-900">
+                  {pillar.title}
+                </h2>
               </div>
-              <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-slate-900">
-                {pillar.title}
-              </h2>
               <p className="mt-3 leading-7 text-slate-600">{pillar.text}</p>
             </article>
           ))}
@@ -306,12 +308,14 @@ export default function AboutUsPage() {
                 key={threat.title}
                 className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.08] text-orange-300">
-                  <threat.icon className="h-6 w-6" />
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/[0.08] text-orange-300">
+                    <threat.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-white">
+                    {threat.title}
+                  </h3>
                 </div>
-                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-white">
-                  {threat.title}
-                </h3>
                 <p className="mt-3 leading-7 text-slate-300">{threat.text}</p>
               </article>
             ))}
@@ -407,3 +411,4 @@ export default function AboutUsPage() {
     </main>
   );
 }
+

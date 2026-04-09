@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import NavigationHeader from "@/components/NavigationHeader";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Navikara",

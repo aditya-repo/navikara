@@ -1,18 +1,26 @@
-import { Globe, ShieldCheck, TrendingUp } from "lucide-react";
+import {
+  GrowthGlyph,
+  IconFrame,
+  PresenceGlyph,
+  TrustGlyph
+} from "@/components/LandingIcons";
 
 const badges = [
   {
-    icon: ShieldCheck,
+    icon: TrustGlyph,
+    tone: "navy" as const,
     title: "Built for service businesses",
     description: "Clear positioning, strong trust signals, and conversion-focused structure."
   },
   {
-    icon: Globe,
+    icon: PresenceGlyph,
+    tone: "sunset" as const,
     title: "Modern web presence",
     description: "Launch a brand people trust on mobile, search, and social."
   },
   {
-    icon: TrendingUp,
+    icon: GrowthGlyph,
+    tone: "emerald" as const,
     title: "Growth-minded execution",
     description: "Leads, nurturing, and reporting tied to business outcomes."
   }
@@ -34,9 +42,9 @@ export default function TrustStrip() {
               key={badge.title}
               className="flex items-center gap-4 rounded-2xl bg-white/80 p-5 shadow-sm ring-1 ring-slate-100"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+              <IconFrame className="h-12 w-12" tone={badge.tone}>
                 <badge.icon className="h-6 w-6" />
-              </div>
+              </IconFrame>
               <div>
                 <div className="font-semibold text-slate-900">{badge.title}</div>
                 <div className="text-sm text-slate-600">{badge.description}</div>

@@ -1,33 +1,40 @@
-import { BarChart3, Clock3, TrendingUp, Users } from "lucide-react";
+import {
+  GrowthGlyph,
+  IconFrame,
+  PipelineGlyph,
+  TeamGlyph,
+  TimeGlyph,
+  VisibilityGlyph
+} from "@/components/LandingIcons";
 
 const metrics = [
   {
-    icon: TrendingUp,
+    icon: GrowthGlyph,
     value: "+180%",
     label: "Lead lift potential",
     description: "For businesses moving from no system to structured inquiry capture.",
-    color: "from-emerald-500 to-green-700"
+    tone: "emerald" as const
   },
   {
-    icon: Users,
+    icon: TeamGlyph,
     value: "+120%",
     label: "Better response handling",
     description: "Cleaner routing and follow-up means fewer inquiries go unattended.",
-    color: "from-sky-500 to-blue-700"
+    tone: "sky" as const
   },
   {
-    icon: Clock3,
+    icon: TimeGlyph,
     value: "8 hrs",
     label: "Saved every week",
     description: "Teams spend less time repeating updates, reminders, and tracking.",
-    color: "from-orange-500 to-amber-600"
+    tone: "sunset" as const
   },
   {
-    icon: BarChart3,
+    icon: VisibilityGlyph,
     value: "3x",
     label: "Clearer visibility",
     description: "More confidence in what pages, offers, and campaigns are working.",
-    color: "from-violet-500 to-indigo-700"
+    tone: "violet" as const
   }
 ];
 
@@ -49,11 +56,9 @@ export default function Results() {
               key={metric.label}
               className="rounded-[28px] border border-white/15 bg-white/10 p-6 backdrop-blur-md transition hover:bg-white/15"
             >
-              <div
-                className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${metric.color}`}
-              >
-                <metric.icon className="h-7 w-7 text-white" />
-              </div>
+              <IconFrame className="mb-4 h-14 w-14" tone={metric.tone}>
+                <metric.icon className="h-7 w-7" />
+              </IconFrame>
               <div className="text-4xl font-bold text-white">{metric.value}</div>
               <div className="mt-2 text-lg font-semibold text-orange-200">{metric.label}</div>
               <p className="mt-2 text-sm leading-7 text-blue-100">{metric.description}</p>

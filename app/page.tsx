@@ -6,9 +6,7 @@ import Pricing from "@/components/Pricing";
 import ProblemSection from "@/components/ProblemSection";
 import Results from "@/components/Results";
 import SocialProof from "@/components/SocialProof";
-import SolutionStack from "@/components/SolutionStack";
 import TrustStrip from "@/components/TrustStrip";
-import UseCases from "@/components/UseCases";
 
 export default function Page() {
   return (
@@ -20,9 +18,7 @@ export default function Page() {
       <section id="about-us" className="scroll-mt-32">
         <ProblemSection />
       </section>
-      <SolutionStack />
       <HowItWorks />
-      <UseCases />
       <Results />
       <SocialProof />
       <section id="pricing" className="scroll-mt-32">
@@ -37,3 +33,5 @@ export default function Page() {
     </main>
   );
 }
+
+

@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, MessageCircleMore, ScanSearch, Sparkles, TrendingUp, Workflow } from "lucide-react";
 import NavigationHeader from "@/components/NavigationHeader";
 
 export default function Hero() {
@@ -86,18 +86,32 @@ export default function Hero() {
                 </div>
                 <div className="space-y-3">
                   {[
-                    ["High-converting website designed for trust", "Launch ready"],
-                    ["WhatsApp and call inquiries routed instantly", "Always on"],
-                    ["CRM pipeline and follow-up automation configured", "Conversion focused"]
-                  ].map(([title, time]) => (
+                    {
+                      title: "High-converting website designed for trust",
+                      time: "Launch ready",
+                      icon: ScanSearch
+                    },
+                    {
+                      title: "WhatsApp and call inquiries routed instantly",
+                      time: "Always on",
+                      icon: MessageCircleMore
+                    },
+                    {
+                      title: "CRM pipeline and follow-up automation configured",
+                      time: "Conversion focused",
+                      icon: Workflow
+                    }
+                  ].map((item) => (
                     <div
-                      key={title}
+                      key={item.title}
                       className="flex items-center gap-3 rounded-2xl bg-white/5 p-3"
                     >
-                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-orange-400 to-amber-300" />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 via-amber-300 to-orange-200 text-slate-950 shadow-lg shadow-orange-950/20">
+                        <item.icon className="h-5 w-5" />
+                      </div>
                       <div className="flex-1">
-                        <div className="text-sm font-medium text-white">{title}</div>
-                        <div className="text-xs text-blue-200">{time}</div>
+                        <div className="text-sm font-medium text-white">{item.title}</div>
+                        <div className="text-xs text-blue-200">{item.time}</div>
                       </div>
                     </div>
                   ))}
