@@ -25,6 +25,50 @@ export const metadata: Metadata = {
   }
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.business.name,
+  alternateName: siteConfig.business.shortName,
+  url: siteConfig.business.website,
+  logo: `${siteConfig.business.website}/favicon_io/android-chrome-512x512.png`,
+  email: siteConfig.contact.email,
+  telephone: siteConfig.contact.phoneDisplay,
+  sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin].filter(
+    (value) => value && value !== "#"
+  ),
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: siteConfig.contact.email,
+      telephone: siteConfig.contact.phoneDisplay,
+      areaServed: "IN",
+      availableLanguage: ["en", "hi"]
+    }
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${siteConfig.contact.address[0]}, ${siteConfig.contact.address[1]}`,
+    addressLocality: "Patna",
+    addressRegion: "Bihar",
+    postalCode: "800001",
+    addressCountry: "IN"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.business.name,
+  url: siteConfig.business.website,
+  description: siteConfig.meta.defaultDescription,
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.business.name
+  }
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -33,6 +77,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {children}
         <FloatingWhatsAppButton />
       </body>

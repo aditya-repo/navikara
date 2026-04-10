@@ -1,7 +1,7 @@
 const contactConfig = {
   email: "navikara99@gmail.com",
-  phoneDisplay: "+91 70500 20659",
-  phoneHref: "tel:+917050020659",
+  phoneDisplay: "+91 94730 95293",
+  phoneHref: "tel:+919473095293",
   whatsappDisplay: "+91 94730 95293",
   whatsappHref: "https://wa.me/919473095293",
   address: ["Navikara Office", "Boring Road", "Patna, Bihar 800001", "India"],
